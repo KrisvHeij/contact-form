@@ -1,0 +1,23 @@
+/* Custom properties */
+@layer colors {
+  :root {
+    --c-grey-900: hsl(187 24% 22%);
+    --c-grey-500: hsl(186 15% 59%);
+    --c-white: hsl(0 0% 0%);
+    --c-green-600: hsl(169 82% 27%);
+    --c-green-200: hsl(148 38% 91%);
+    --c-red: hsl(0 66% 54%);
+  }
+}
+
+@layer spacing {
+  :root {
+    --spacing-100: 0.5rem;
+    --spacing-150: 0.75rem;
+    --spacing-200: 1rem;
+    --spacing-300: 1.5rem;
+    --spacing-400: 2rem;
+    --spacing-500: 2.5rem;
+    --spacing-1600: 8rem;
+  }
+} 
