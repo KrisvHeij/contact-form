@@ -3,7 +3,7 @@
   :root {
     --c-grey-900: hsl(187 24% 22%);
     --c-grey-500: hsl(186 15% 59%);
-    --c-white: hsl(0 0% 0%);
+    --c-white: hsl(0 0% 100%);
     --c-green-600: hsl(169 82% 27%);
     --c-green-200: hsl(148 38% 91%);
     --c-red: hsl(0 66% 54%);
@@ -22,6 +22,28 @@
   }
 } 
 
+/* Font weight 400 or 700 */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Karla", sans-serif;
+  background-color: var(--c-green-200);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-block: clamp(2rem, calc(-3.725rem + 24.427vw), 8rem);
+  padding-inline: var(--spacing-200);
 }
+
+.form-container {
+  background-color: var(--c-white);
+}
+
+/* continue with form-container */
