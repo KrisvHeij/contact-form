@@ -21,3 +21,7 @@
     --spacing-1600: 8rem;
   }
 } 
+
+body {
+  font-family: "Karla", sans-serif;
+}

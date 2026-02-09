@@ -25,11 +25,61 @@
       <h1>Contact Us</h1>
       <form>
         <div class="form-group">
-          <label for="firstName"> First Name</label>
-          <input type="text" name="firstName" id="firstName" />
+          <label for="firstName"
+            >First Name <span class="required-icon">*</span></label
+          >
+          <input type="text" name="firstName" id="firstName" required />
+          <p class="error-message" aria-hidden="true">This field is required</p>
         </div>
+        <div class="form-group">
+          <label for="lastName"
+            >Last Name <span class="required-icon">*</span></label
+          >
+          <input type="text" name="lastName" id="lastName" required />
+          <p class="error-message" aria-hidden="true">This field is required</p>
+        </div>
+        <div class="form-group">
+          <label for="email"
+            >Email Address <span class="required-icon">*</span></label
+          >
+          <input type="email" name="email" id="email" required />
+          <p class="error-message" aria-hidden="true">This field is required</p>
+        </div>
+        <fieldset>
+          <legend>Query Type <span class="required-icon">*</span></legend>
+          <div class="form-group">
+            <input type="radio" name="queryType" id="generalQuery" />
+            <label for="generalQuery">General Enquiry</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="queryType" id="supportQuery" />
+            <label for="supportQuery">Support Request</label>
+          </div>
+          <p class="error-message" aria-hidden="true">
+            Please select a query type
+          </p>
+        </fieldset>
+        <div class="form-group">
+          <label for="message"
+            >Message <span class="required-icon">*</span></label
+          >
+          <textarea name="message" id="message"></textarea>
+          <p class="error-message" aria-hidden="true">This field is required</p>
+        </div>
+        <div class="consent">
+          <input type="checkbox" name="consent" id="consent" />
+          <label for="consent">I consent to being contacted by the team</label>
+          <p class="error-message" aria-hidden="true">
+            To submit this form, please consent to being contacted
+          </p>
+        </div>
+        <button type="submit">Submit</button>
       </form>
     </main>
+    <div class="success-message">
+      <h2>Message Sent!</h2>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
     <!-- Contact Us
 
   First Name
