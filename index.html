@@ -30,7 +30,7 @@
               >First Name <span class="required-icon">*</span></label
             >
             <input type="text" name="firstName" id="firstName" required />
-            <p class="error-message" aria-hidden="true">
+            <p class="error-message" aria-hidden="true" hidden>
               This field is required
             </p>
           </div>
@@ -39,7 +39,7 @@
               >Last Name <span class="required-icon">*</span></label
             >
             <input type="text" name="lastName" id="lastName" required />
-            <p class="error-message" aria-hidden="true">
+            <p class="error-message" aria-hidden="true" hidden>
               This field is required
             </p>
           </div>
@@ -49,19 +49,21 @@
             >Email Address <span class="required-icon">*</span></label
           >
           <input type="email" name="email" id="email" required />
-          <p class="error-message" aria-hidden="true">This field is required</p>
+          <p class="error-message" aria-hidden="true" hidden>
+            This field is required
+          </p>
         </div>
         <fieldset class="flex-container">
           <legend>Query Type <span class="required-icon">*</span></legend>
-          <div class="form-group">
+          <div class="form-group-radio">
             <input type="radio" name="queryType" id="generalQuery" />
             <label for="generalQuery">General Enquiry</label>
           </div>
-          <div class="form-group">
+          <div class="form-group-radio">
             <input type="radio" name="queryType" id="supportQuery" />
             <label for="supportQuery">Support Request</label>
           </div>
-          <p class="error-message" aria-hidden="true">
+          <p class="error-message" aria-hidden="true" hidden>
             Please select a query type
           </p>
         </fieldset>
@@ -70,12 +72,14 @@
             >Message <span class="required-icon">*</span></label
           >
           <textarea name="message" id="message"></textarea>
-          <p class="error-message" aria-hidden="true">This field is required</p>
+          <p class="error-message" aria-hidden="true" hidden>
+            This field is required
+          </p>
         </div>
         <div class="consent">
           <input type="checkbox" name="consent" id="consent" />
           <label for="consent">I consent to being contacted by the team</label>
-          <p class="error-message" aria-hidden="true">
+          <p class="error-message" aria-hidden="true" hidden>
             To submit this form, please consent to being contacted
           </p>
         </div>
