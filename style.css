@@ -147,6 +147,17 @@ fieldset {
   color: var(--c-grey-900);
 }
 
-
+button {
+  padding-block: var(--spacing-200);
+  padding-inline: var(--spacing-500);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--c-white);
+  background-color: var(--c-green-600);
+  border-radius: var(--spacing-100);
+  border: 0;
+  cursor: pointer;
+}
 
  
