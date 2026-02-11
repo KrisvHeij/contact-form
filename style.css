@@ -46,6 +46,7 @@ body {
   background-color: var(--c-white);
   border-radius: 1rem;
   padding: clamp(24px, calc(8.733px + 4.071vw), 40px);
+  width: 43.125rem;
 }
 
 h1 {
@@ -113,6 +114,37 @@ fieldset legend {
 
 fieldset {
   border: 0;
+}
+
+.form-group textarea {
+  height: calc(240px - 10vw);
+}
+
+.consent {
+  margin-block: var(--spacing-200);
+  display: flex;
+  gap: var(--spacing-200);
+  align-items: center;
+}
+
+.consent input[type="checkbox"] {
+  appearance: none;
+  min-width: 1.125rem;
+  min-height: 1.125rem;
+  border: solid 1px var(--c-grey-500);
+}
+
+.consent input[type="checkbox"]:checked {
+  border: 0;
+  background-image: url("./assets/images/icon-checkbox-check.svg");
+  background-position: center;
+}
+
+.consent label {
+  font-size: 1rem; 
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--c-grey-900);
 }
 
 
