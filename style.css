@@ -77,10 +77,10 @@ fieldset legend {
   color: var(--c-green-600);
 }
                          
-.form-group input[type="text"],
-.form-group input[type="email"],
+.input-text,
+.input-email,
 .form-group-radio,
-.form-group textarea {
+.input-message {
   width: 100%;
   border: solid 1px var(--c-grey-500);
   border-radius: 0.5rem;
@@ -90,19 +90,19 @@ fieldset legend {
 }
 
 /* Hover & Focus states*/
-.form-group input[type="text"]:hover,
-.form-group input[type="email"]:hover,
+.input-text:hover,
+.input-email:hover,
 .form-group-radio:hover,
-.form-group textarea:hover {
+.input-message:hover {
   outline: solid 1px var(--c-green-600);
 }
 
-.form-group input[type="text"]:focus-visible,
-.form-group input[type="email"]:focus-visible,
+.input-text:focus-visible,
+.input-email:focus-visible,
 .form-group-radio:focus-visible,
-.form-group textarea:focus-visible,
-.form-group-radio input[type="radio"]:focus-visible,
-.consent input[type="checkbox"] {
+.input-message:focus-visible,
+.input-radio:focus-visible,
+.input-checkbox {
   outline: solid 1px var(--c-green-600);
 }
 
@@ -117,7 +117,7 @@ fieldset legend {
   line-height: 1.5;
 }
 
-.form-group-radio input[type="radio"] {
+.input-radio {
   appearance: none;
   width: 1.2rem;
   height: 1.2rem;
@@ -125,7 +125,7 @@ fieldset legend {
   border-radius: 50%;
 }
 
-.form-group-radio input[type="radio"]:checked {
+.input-radio:checked {
   border: 0;
   background-image: url(./assets/images/icon-radio-selected.svg);
   background-position: center;
@@ -141,11 +141,11 @@ fieldset {
   border: 0;
 }
 
-.form-group textarea {
+.input-message {
   height: calc(240px - 10vw);
 }
 
-.consent {
+.consent div {
   margin-block: var(--spacing-200);
   display: flex;
   align-items: center;
@@ -156,14 +156,14 @@ fieldset {
   cursor: pointer;
 }
 
-.consent input[type="checkbox"] {
+.input-checkbox {
   appearance: none;
   min-width: 1.125rem;
   min-height: 1.125rem;
   border: solid 1px var(--c-grey-500);
 }
 
-.consent input[type="checkbox"]:checked {
+.input-checkbox:checked {
   border: 0;
   background-image: url("./assets/images/icon-checkbox-check.svg");
   background-position: center;
@@ -189,6 +189,27 @@ button {
   border-radius: var(--spacing-100);
   border: 0;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(169 82% 20%);
+}
+
+/* Error styles */
+.error-message {
+  color: var(--c-red);
+  margin-block-start: var(--spacing-100);
+  font-size: 1rem; 
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.error-border {
+  border: solid 1px var(--c-red);
+}
+
+fieldset .error-message {
+  margin-block-start: -0.5rem;
 }
 
  @media (min-width: 48rem) {
