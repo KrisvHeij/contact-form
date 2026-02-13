@@ -40,6 +40,7 @@ body {
   justify-content: center;
   padding-block: clamp(2rem, calc(-3.725rem + 24.427vw), 8rem);
   padding-inline: var(--spacing-200);
+  position: relative;
 }
 
 .form-container {
@@ -210,6 +211,18 @@ button:hover {
 
 fieldset .error-message {
   margin-block-start: -0.5rem;
+}
+
+/* Success message */
+.success-outer {
+  position: absolute;
+  top: 0;
+  padding: var(--spacing-300);
+}
+
+.success-inner {
+  background-color: var(--c-grey-900);
+  border-radius: var(--spacing-150);
 }
 
  @media (min-width: 48rem) {
