@@ -4,8 +4,10 @@ const checkInpout = document.querySelector(".input-checkbox");
 const submitBtn = document.querySelector("button");
 
 function handleFirstName() {
-  const firstName = document.getElementById("firstName").value;
-  console.log(firstName);
+  const firstName = document.getElementById("firstName");
+  if (firstName.value === "") {
+    
+  }
 }
 
 
@@ -16,6 +18,6 @@ function handleSubmit() {
 }
 
 submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   handleSubmit();
 })
