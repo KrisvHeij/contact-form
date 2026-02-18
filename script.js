@@ -19,13 +19,24 @@ function handleFirstName() {
 }
 
 function handleLastName() {
-  
+  const lastName = document.getElementById("lastName");
+  const error = document.querySelector(".error-last-name");
+  const regex = /^[a-zA-Z ]+$/;
+
+  if (lastName.value === "" || !regex.test(lastName.value)) {
+    error.removeAttribute("hidden");
+    lastName.classList.add("error-border");
+    console.log("false")
+  } else {
+    console.log("true");
+  }
 }
 
 
 
 function handleSubmit() {
   handleFirstName();
+  handleLastName();
 }
 
 submitBtn.addEventListener("click", (e) => {
