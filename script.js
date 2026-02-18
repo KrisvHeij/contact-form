@@ -12,9 +12,9 @@ function handleFirstName() {
   if (firstName.value === "" || !regex.test(firstName.value)) {
     error.removeAttribute("hidden");
     firstName.classList.add("error-border");
-    console.log("false");
+    console.log("firstName false");
   } else {
-    console.log("true")
+    console.log("firstName true");
   }
 }
 
@@ -26,17 +26,30 @@ function handleLastName() {
   if (lastName.value === "" || !regex.test(lastName.value)) {
     error.removeAttribute("hidden");
     lastName.classList.add("error-border");
-    console.log("false")
+    console.log("lastName false")
   } else {
-    console.log("true");
+    console.log("lastName true");
   }
 }
 
+function handleEmail() {
+  const email = document.getElementById("email");
+  const error = document.querySelector(".error-email");
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+  if (email.value === "" || !regex.test(email.value)) {
+    error.removeAttribute("hidden");
+    email.classList.add("error-border");
+    console.log("email false");
+  } else {
+    console.log("email true");
+  }
+}
 
 function handleSubmit() {
   handleFirstName();
   handleLastName();
+  handleEmail();
 }
 
 submitBtn.addEventListener("click", (e) => {
