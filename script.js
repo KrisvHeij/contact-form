@@ -5,6 +5,7 @@ const submitBtn = document.querySelector("button");
 
 function handleFirstName() {
   const firstName = document.getElementById("firstName");
+ 
   if (firstName.value === "") {
     
   }
