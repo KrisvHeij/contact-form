@@ -46,13 +46,27 @@ function handleEmail() {
   }
 }
 
+function handleQuery() {
+  const radioInputs = document.querySelectorAll(".input-radio");
+  const error = document.querySelector(".error-query");
+  const radioInputsArray = [...radioInputs];
+
+   if(!radioInputsArray.some(input => input.checked)) {
+    error.removeAttribute("hidden");
+    console.log("query false");
+   } else {
+    console.log("query true");
+   }
+}
+
 function handleSubmit() {
   handleFirstName();
   handleLastName();
   handleEmail();
+  handleQuery();
 }
 
 submitBtn.addEventListener("click", (e) => {
   // e.preventDefault();
   handleSubmit();
-})
+});
