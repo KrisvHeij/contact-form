@@ -42,7 +42,8 @@
         <div class="flex-container">
           <div class="form-group">
             <label for="firstName"
-              >First Name <span class="required-icon">*</span></label
+              >First Name
+              <span class="required-icon" aria-hidden="true">*</span></label
             >
             <input
               type="text"
@@ -57,7 +58,8 @@
           </div>
           <div class="form-group">
             <label for="lastName"
-              >Last Name <span class="required-icon">*</span></label
+              >Last Name
+              <span class="required-icon" aria-hidden="true">*</span></label
             >
             <input
               type="text"
@@ -73,7 +75,8 @@
         </div>
         <div class="form-group">
           <label for="email"
-            >Email Address <span class="required-icon">*</span></label
+            >Email Address
+            <span class="required-icon" aria-hidden="true">*</span></label
           >
           <input
             type="email"
@@ -87,7 +90,9 @@
           </p>
         </div>
         <fieldset class="flex-container">
-          <legend>Query Type <span class="required-icon">*</span></legend>
+          <legend>
+            Query Type <span class="required-icon" aria-hidden="true">*</span>
+          </legend>
           <div class="form-group-radio">
             <input
               type="radio"
@@ -114,7 +119,8 @@
         </fieldset>
         <div class="form-group">
           <label for="message"
-            >Message <span class="required-icon">*</span></label
+            >Message
+            <span class="required-icon" aria-hidden="true">*</span></label
           >
           <textarea
             name="message"
@@ -137,7 +143,7 @@
             />
             <label for="consent"
               >I consent to being contacted by the team
-              <span class="required-icon">*</span></label
+              <span class="required-icon" aria-hidden="true">*</span></label
             >
           </div>
           <p class="error-message" aria-hidden="true" hidden>
@@ -147,36 +153,5 @@
         <button type="submit">Submit</button>
       </form>
     </main>
-    <div class="success-message" hidden>
-      <h2>Message Sent!</h2>
-      <p>Thanks for completing the form. We'll be in touch soon!</p>
-    </div>
-    <!-- Contact Us
-
-  First Name
-  This field is required
-
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon! -->
   </body>
 </html>
