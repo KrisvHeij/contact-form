@@ -1,8 +1,4 @@
-const textInputs = document.querySelectorAll(".input");
-const radioInputs = document.querySelectorAll(".input-radio");
-const checkInpout = document.querySelector(".input-checkbox");
 const submitBtn = document.querySelector("button");
-
 
 function handleFirstName() {
   const firstName = document.getElementById("firstName");
@@ -65,8 +61,20 @@ function handleMessage() {
 
   if (message.value === "") {
     error.removeAttribute("hidden");
-    error.classList.add("error-border");
+    message.classList.add("error-border");
     console.log("message false");
+  }
+}
+
+function handleConsent() {
+  const checkbox = document.getElementById("consent");
+  const error = document.querySelector(".error-consent");
+
+  if (!checkbox.checked) {
+    error.removeAttribute("hidden");
+    console.log("consent false");
+  } else {
+    console.log("consent true");
   }
 }
 
@@ -76,6 +84,7 @@ function handleSubmit() {
   handleEmail();
   handleQuery();
   handleMessage();
+  handleConsent();
 }
 
 submitBtn.addEventListener("click", (e) => {
