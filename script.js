@@ -1,16 +1,24 @@
 const submitBtn = document.querySelector("button");
 
+function showError(error) {
+  error.removeAttribute("hidden");
+  error.ariaHidden = "false";
+  error.setAttribute("aria-live", "polite");
+}
+
 function handleFirstName() {
   const firstName = document.getElementById("firstName");
   const error = document.querySelector(".error-first-name");
   const regex = /^[a-zA-Z]+$/;
   
   if (firstName.value === "" || !regex.test(firstName.value)) {
-    error.removeAttribute("hidden");
+    showError(error);
     firstName.classList.add("error-border");
     console.log("firstName false");
+    return false
   } else {
     console.log("firstName true");
+    return true;
   }
 }
 
@@ -20,11 +28,13 @@ function handleLastName() {
   const regex = /^[a-zA-Z ]+$/;
 
   if (lastName.value === "" || !regex.test(lastName.value)) {
-    error.removeAttribute("hidden");
+    showError(error);
     lastName.classList.add("error-border");
     console.log("lastName false")
+    return false;
   } else {
     console.log("lastName true");
+    return true;
   }
 }
 
@@ -34,7 +44,7 @@ function handleEmail() {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   if (email.value === "" || !regex.test(email.value)) {
-    error.removeAttribute("hidden");
+    showError(error);
     email.classList.add("error-border");
     console.log("email false");
   } else {
@@ -48,7 +58,7 @@ function handleQuery() {
   const radioInputsArray = [...radioInputs];
 
    if(!radioInputsArray.some(input => input.checked)) {
-    error.removeAttribute("hidden");
+    showError(error);
     console.log("query false");
    } else {
     console.log("query true");
@@ -60,7 +70,7 @@ function handleMessage() {
   const error = document.querySelector(".error-text-message");
 
   if (message.value === "") {
-    error.removeAttribute("hidden");
+    showError(error);
     message.classList.add("error-border");
     console.log("message false");
   }
@@ -71,7 +81,7 @@ function handleConsent() {
   const error = document.querySelector(".error-consent");
 
   if (!checkbox.checked) {
-    error.removeAttribute("hidden");
+    showError(error);
     console.log("consent false");
   } else {
     console.log("consent true");
