@@ -1,29 +1,60 @@
-const submitBtn = document.querySelector("button");
+// const submitBtn = document.querySelector("button");
+const form = document.querySelector("form");
 
-function showError(error) {
-  error.removeAttribute("hidden");
-  error.ariaHidden = "false";
-  error.setAttribute("aria-live", "polite");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const radioInputs = document.querySelectorAll(".input-radio");
+const message = document.getElementById("message");
+const checkbox = document.getElementById("consent");
+
+// function showError(error) {
+//   error.removeAttribute("hidden");
+//   error.ariaHidden = "false";
+//   error.setAttribute("aria-live", "polite");
+// }
+
+function isValidFirstName(value) {
+  const regex = /^[a-zA-Z]+$/;
+
+  return value !== "" && regex.test(value);
+}
+
+function updateTextInput(input, error, valid) {
+  if (!valid) {
+    input.classList.add("error-border");
+    error.removeAttribute("hidden");
+  } else {
+    input.classList.remove("error-border");
+    error.setAttribute("hidden", "");
+  }
 }
 
 function handleFirstName() {
   const firstName = document.getElementById("firstName");
-  const error = document.querySelector(".error-first-name");
-  const regex = /^[a-zA-Z]+$/;
+  const error = document.getElementById("error-first-name");
+  // const regex = /^[a-zA-Z]+$/;
   
-  if (firstName.value === "" || !regex.test(firstName.value)) {
-    showError(error);
-    firstName.classList.add("error-border");
-    console.log("firstName false");
-    return false
-  } else {
-    console.log("firstName true");
-    return true;
+  // if (firstName.value === "" || !regex.test(firstName.value)) {
+  //   showError(error);
+  //   firstName.classList.add("error-border");
+  //   console.log("firstName false");
+  //   return false
+  // } else {
+  //   console.log("firstName true");
+  //   return true;
+  // }
+
+  const valid = isValidFirstName(firstName.value);
+
+  updateTextInput(firstName, error, valid);
+
+  if (!valid) {
+    firstName.focus();
   }
+  return valid;
 }
 
 function handleLastName() {
-  const lastName = document.getElementById("lastName");
   const error = document.querySelector(".error-last-name");
   const regex = /^[a-zA-Z ]+$/;
 
@@ -39,7 +70,6 @@ function handleLastName() {
 }
 
 function handleEmail() {
-  const email = document.getElementById("email");
   const error = document.querySelector(".error-email");
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -55,7 +85,6 @@ function handleEmail() {
 }
 
 function handleQuery() {
-  const radioInputs = document.querySelectorAll(".input-radio");
   const error = document.querySelector(".error-query");
   const radioInputsArray = [...radioInputs];
 
@@ -70,7 +99,6 @@ function handleQuery() {
 }
 
 function handleMessage() {
-  const message = document.getElementById("message");
   const error = document.querySelector(".error-text-message");
 
   if (message.value === "") {
@@ -85,7 +113,6 @@ function handleMessage() {
 }
 
 function handleConsent() {
-  const checkbox = document.getElementById("consent");
   const error = document.querySelector(".error-consent");
 
   if (!checkbox.checked) {
@@ -99,25 +126,25 @@ function handleConsent() {
 }
 
 function handleSubmit() {
-  // handleFirstName();
+  handleFirstName();
   // handleLastName();
   // handleEmail();
   // handleQuery();
   // handleMessage();
   // handleConsent();
 
-  const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
+  // const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
 
-  const result = validators.every(validator => validator());
-  
-  if (result) {
-    // showSuccesMessage();
-    const form = document.querySelector("form");
-    form.submit();
-  }
+  // const results = validators.map(validator => validator());
+
+  // const result = results.every(Boolean);
+  // console.log(result);
+  // if (result) {
+  //   form.submit();
+  // }
 }
 
-submitBtn.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   handleSubmit();
 });

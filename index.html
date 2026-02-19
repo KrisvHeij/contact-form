@@ -38,7 +38,7 @@
 
     <main class="form-container">
       <h1>Contact Us</h1>
-      <form>
+      <form novalidate>
         <div class="flex-container">
           <div class="form-group">
             <label for="firstName"
@@ -50,9 +50,10 @@
               name="firstName"
               id="firstName"
               class="input-text input"
+              aria-describedby="error-first-name"
               required
             />
-            <p class="error-message error-first-name" aria-hidden="true" hidden>
+            <p id="error-first-name" class="error-message" hidden>
               This field is required
             </p>
           </div>
