@@ -60,7 +60,14 @@ function handleQuery() {
 }
 
 function handleMessage() {
+  const message = document.getElementById("message");
+  const error = document.querySelector(".error-text-message");
 
+  if (message.value === "") {
+    error.removeAttribute("hidden");
+    error.classList.add("error-border");
+    console.log("message false");
+  }
 }
 
 function handleSubmit() {
