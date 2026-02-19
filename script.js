@@ -47,8 +47,10 @@ function handleEmail() {
     showError(error);
     email.classList.add("error-border");
     console.log("email false");
+    return false;
   } else {
     console.log("email true");
+    return true;
   }
 }
 
@@ -60,8 +62,10 @@ function handleQuery() {
    if(!radioInputsArray.some(input => input.checked)) {
     showError(error);
     console.log("query false");
+    return false;
    } else {
     console.log("query true");
+    return true;
    }
 }
 
@@ -73,6 +77,10 @@ function handleMessage() {
     showError(error);
     message.classList.add("error-border");
     console.log("message false");
+    return false;
+  } else {
+    console.log("message true");
+    return true;
   }
 }
 
@@ -83,21 +91,33 @@ function handleConsent() {
   if (!checkbox.checked) {
     showError(error);
     console.log("consent false");
+    return false;
   } else {
     console.log("consent true");
+    return true;
   }
 }
 
 function handleSubmit() {
-  handleFirstName();
-  handleLastName();
-  handleEmail();
-  handleQuery();
-  handleMessage();
-  handleConsent();
+  // handleFirstName();
+  // handleLastName();
+  // handleEmail();
+  // handleQuery();
+  // handleMessage();
+  // handleConsent();
+
+  const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
+
+  const result = validators.every(validator => validator());
+  
+  if (result) {
+    // showSuccesMessage();
+    const form = document.querySelector("form");
+    form.submit();
+  }
 }
 
 submitBtn.addEventListener("click", (e) => {
-  // e.preventDefault();
+  e.preventDefault();
   handleSubmit();
 });
