@@ -48,9 +48,6 @@ function handleFirstName() {
 
   updateTextInput(firstName, error, valid);
 
-  if (!valid) {
-    firstName.focus();
-  }
   return valid;
 }
 
