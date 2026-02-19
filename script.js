@@ -59,11 +59,16 @@ function handleQuery() {
    }
 }
 
+function handleMessage() {
+
+}
+
 function handleSubmit() {
   handleFirstName();
   handleLastName();
   handleEmail();
   handleQuery();
+  handleMessage();
 }
 
 submitBtn.addEventListener("click", (e) => {
