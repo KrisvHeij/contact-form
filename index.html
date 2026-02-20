@@ -67,9 +67,14 @@
               name="lastName"
               id="lastName"
               class="input-text input"
+              aria-describedby="error-last-name"
               required
             />
-            <p class="error-message error-last-name" aria-hidden="true" hidden>
+            <p
+              id="error-last-name"
+              class="error-message error-last-name"
+              hidden
+            >
               This field is required
             </p>
           </div>
@@ -84,9 +89,10 @@
             name="email"
             id="email"
             class="input-email input"
+            aria-describedby="error-email"
             required
           />
-          <p class="error-message error-email" aria-hidden="true" hidden>
+          <p id="error-email" class="error-message" hidden>
             This field is required
           </p>
         </div>
@@ -100,6 +106,7 @@
               name="queryType"
               id="generalQuery"
               class="input-radio"
+              aria-describedby="error-query"
               value="generalQuery"
             />
             <label for="generalQuery">General Enquiry</label>
@@ -110,11 +117,12 @@
               name="queryType"
               id="supportQuery"
               class="input-radio"
+              aria-describedby="error-query"
               value="supportQuery"
             />
             <label for="supportQuery">Support Request</label>
           </div>
-          <p class="error-message error-query" aria-hidden="true" hidden>
+          <p id="error-query" class="error-message" hidden>
             Please select a query type
           </p>
         </fieldset>
@@ -127,9 +135,14 @@
             name="message"
             id="message"
             class="input-message input"
+            aria-describedby="error-text-message"
             required
           ></textarea>
-          <p class="error-message error-text-message" aria-hidden="true" hidden>
+          <p
+            id="error-text-message"
+            class="error-message error-text-message"
+            hidden
+          >
             This field is required
           </p>
         </div>
@@ -140,6 +153,7 @@
               name="consent"
               id="consent"
               class="input-checkbox"
+              aria-describedby="error-consent"
               required
             />
             <label for="consent"
@@ -147,7 +161,7 @@
               <span class="required-icon" aria-hidden="true">*</span></label
             >
           </div>
-          <p class="error-message error-consent" aria-hidden="true" hidden>
+          <p id="error-consent" class="error-message" hidden>
             To submit this form, please consent to being contacted
           </p>
         </div>
