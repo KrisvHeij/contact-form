@@ -3,9 +3,32 @@ const form = document.querySelector("form");
 
 // Show submit message
 function showSubmitMessage() {
+  const body = document.querySelector("body");
+  // Create Submit message
   const message = document.createElement("div");
+  message.className = "succes-outer";
+  message.setAttribute("aria-live", "polite");
+  // Create inner div
+  const inner = document.createElement("div");
+  inner.className = "succes-inner";
+  // Create header
+  const header = document.createElement("div");
+  header.className = "succes-head";
+  // Create header elements
+  const img = document.createElement("img");
+  img.src = "./assets/images/icon-success-check.svg";
+  img.setAttribute("aria-hidden", "true");
+  const headerText = document.createElement("h2");
+  headerText.innerText = "Message Sent!";
+  // Create paragraph
+  const p = document.createElement("p");
+  p.innerText = "Thanks for completing the form. We'll be in touch soon!";
 
-  
+  // Append elements
+  header.append(img, headerText);
+  inner.append(header, p);
+  message.append(inner);
+  body.append(message);
 }
 
 // UI functions
