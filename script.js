@@ -4,16 +4,17 @@ const form = document.querySelector("form");
 // Show submit message
 function showSubmitMessage() {
   const body = document.querySelector("body");
+  const main = document.querySelector("main");
   // Create Submit message
   const message = document.createElement("div");
-  message.className = "succes-outer";
+  message.className = "success-outer";
   message.setAttribute("aria-live", "polite");
   // Create inner div
   const inner = document.createElement("div");
-  inner.className = "succes-inner";
+  inner.className = "success-inner";
   // Create header
   const header = document.createElement("div");
-  header.className = "succes-head";
+  header.className = "success-head";
   // Create header elements
   const img = document.createElement("img");
   img.src = "./assets/images/icon-success-check.svg";
@@ -155,13 +156,15 @@ function handleSubmit() {
   const result = results.every(Boolean);
   
   if (result) {
-    form.submit();
+    form.reset();
+    showSubmitMessage();
   }
-
+  console.log(result);
   return result;
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   handleSubmit();
 });
