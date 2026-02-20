@@ -1,24 +1,13 @@
 // const submitBtn = document.querySelector("button");
 const form = document.querySelector("form");
 
-const lastName = document.getElementById("lastName");
-const email = document.getElementById("email");
-const radioInputs = document.querySelectorAll(".input-radio");
-const message = document.getElementById("message");
-const checkbox = document.getElementById("consent");
 
-// function showError(error) {
-//   error.removeAttribute("hidden");
-//   error.ariaHidden = "false";
-//   error.setAttribute("aria-live", "polite");
-// }
 
-function isValidFirstName(value) {
-  const regex = /^[a-zA-Z]+$/;
 
-  return value !== "" && regex.test(value);
-}
 
+
+
+// UI functions
 function updateTextInput(input, error, valid) {
   if (!valid) {
     input.classList.add("error-border");
@@ -29,21 +18,46 @@ function updateTextInput(input, error, valid) {
   }
 }
 
+function updateInput(error, valid) {
+  if (!valid) {
+    error.removeAttribute("hidden");
+  } else {
+    error.setAttribute("hidden", "");
+  }
+}
+
+// Validate functions
+function isValidFirstName(value) {
+  const regex = /^[a-zA-Z]+$/;
+  return value !== "" && regex.test(value);
+}
+
+function isValidLastName(value) {
+  const regex = /^[a-zA-Z ]+$/;
+  return value != "" && regex.test(value);
+}
+
+function isValidEmail(value) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  return value != "" && regex.test(value);
+}
+
+function isValidQuery(array) {
+  return array.some(input => input.checked);
+} 
+
+function isValidMessage(value) {
+  return value != "";
+}
+
+function isValidConsent(input) {
+  return input.checked;
+}
+
+// Handle & update functions
 function handleFirstName() {
   const firstName = document.getElementById("firstName");
   const error = document.getElementById("error-first-name");
-  // const regex = /^[a-zA-Z]+$/;
-  
-  // if (firstName.value === "" || !regex.test(firstName.value)) {
-  //   showError(error);
-  //   firstName.classList.add("error-border");
-  //   console.log("firstName false");
-  //   return false
-  // } else {
-  //   console.log("firstName true");
-  //   return true;
-  // }
-
   const valid = isValidFirstName(firstName.value);
 
   updateTextInput(firstName, error, valid);
@@ -52,78 +66,58 @@ function handleFirstName() {
 }
 
 function handleLastName() {
-  const error = document.querySelector(".error-last-name");
-  const regex = /^[a-zA-Z ]+$/;
+  const lastName = document.getElementById("lastName");
+  const error = document.getElementById("error-last-name");
+  const valid = isValidLastName(lastName.value);
 
-  if (lastName.value === "" || !regex.test(lastName.value)) {
-    showError(error);
-    lastName.classList.add("error-border");
-    console.log("lastName false")
-    return false;
-  } else {
-    console.log("lastName true");
-    return true;
-  }
+  updateTextInput(lastName, error, valid);
+
+  return valid;
 }
 
 function handleEmail() {
-  const error = document.querySelector(".error-email");
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const email = document.getElementById("email");
+  const error = document.getElementById("error-email");
+  const valid = isValidEmail(email.value);
 
-  if (email.value === "" || !regex.test(email.value)) {
-    showError(error);
-    email.classList.add("error-border");
-    console.log("email false");
-    return false;
-  } else {
-    console.log("email true");
-    return true;
-  }
+  updateTextInput(email, error, valid);
+
+  return valid;
 }
 
 function handleQuery() {
-  const error = document.querySelector(".error-query");
+  const radioInputs = document.querySelectorAll(".input-radio");
+  const error = document.getElementById("error-query");
   const radioInputsArray = [...radioInputs];
+  const valid = isValidQuery(radioInputsArray);
+  
+  updateInput(error, valid);
 
-   if(!radioInputsArray.some(input => input.checked)) {
-    showError(error);
-    console.log("query false");
-    return false;
-   } else {
-    console.log("query true");
-    return true;
-   }
+  return valid;
 }
 
 function handleMessage() {
-  const error = document.querySelector(".error-text-message");
+  const message = document.getElementById("message");
+  const error = document.getElementById("error-text-message");
+  const valid = isValidMessage(message.value);
 
-  if (message.value === "") {
-    showError(error);
-    message.classList.add("error-border");
-    console.log("message false");
-    return false;
-  } else {
-    console.log("message true");
-    return true;
-  }
+  updateTextInput(message, error, valid);
+
+  return valid;
 }
 
 function handleConsent() {
-  const error = document.querySelector(".error-consent");
+  const checkbox = document.getElementById("consent");
+  const error = document.getElementById("error-consent");
+  const valid = isValidConsent(checkbox);
 
-  if (!checkbox.checked) {
-    showError(error);
-    console.log("consent false");
-    return false;
-  } else {
-    console.log("consent true");
-    return true;
-  }
+  updateInput(error, valid);
+
+  return valid;
 }
 
 function handleSubmit() {
-  handleFirstName();
+  // handleFirstName();
   // handleLastName();
   // handleEmail();
   // handleQuery();
