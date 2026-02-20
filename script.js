@@ -1,11 +1,12 @@
 // const submitBtn = document.querySelector("button");
 const form = document.querySelector("form");
 
+// Show submit message
+function showSubmitMessage() {
+  const message = document.createElement("div");
 
-
-
-
-
+  
+}
 
 // UI functions
 function updateTextInput(input, error, valid) {
@@ -124,15 +125,17 @@ function handleSubmit() {
   // handleMessage();
   // handleConsent();
 
-  // const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
+  const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
 
-  // const results = validators.map(validator => validator());
+  const results = validators.map(validator => validator());
 
-  // const result = results.every(Boolean);
-  // console.log(result);
-  // if (result) {
-  //   form.submit();
-  // }
+  const result = results.every(Boolean);
+  
+  if (result) {
+    form.submit();
+  }
+
+  return result;
 }
 
 form.addEventListener("submit", (e) => {
