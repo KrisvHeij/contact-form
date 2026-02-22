@@ -164,12 +164,15 @@ function handleSubmit() {
 
     setTimeout(() => {
       removeSubmitMessage();
-    }, 3000);
+    }, 4000);
   }
+
+  console.log(firstInvalidInput);
+  invalidInput = firstInvalidInput;
+  console.log(invalidInput);
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   handleSubmit();
 });
