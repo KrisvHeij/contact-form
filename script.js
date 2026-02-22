@@ -1,4 +1,3 @@
-// const submitBtn = document.querySelector("button");
 const form = document.querySelector("form");
 
 // Show submit message
@@ -40,12 +39,12 @@ function isValidFirstName(value) {
 
 function isValidLastName(value) {
   const regex = /^[a-zA-Z ]+$/;
-  return value != "" && regex.test(value);
+  return value !== "" && regex.test(value);
 }
 
 function isValidEmail(value) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  return value != "" && regex.test(value);
+  return value !== "" && regex.test(value);
 }
 
 function isValidQuery(array) {
@@ -53,7 +52,7 @@ function isValidQuery(array) {
 } 
 
 function isValidMessage(value) {
-  return value != "";
+  return value !== "";
 }
 
 function isValidConsent(input) {
@@ -110,7 +109,7 @@ function handleQuery() {
 
   return {
     valid: valid,
-    input: radioInputsArray
+    input: radioInputsArray[0]
   };
 }
 
@@ -141,13 +140,6 @@ function handleConsent() {
 }
 
 function handleSubmit() {
-  // handleFirstName();
-  // handleLastName();
-  // handleEmail();
-  // handleQuery();
-  // handleMessage();
-  // handleConsent();
-
   const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
 
   let firstInvalidInput = null;
