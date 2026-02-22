@@ -3,33 +3,14 @@ const form = document.querySelector("form");
 
 // Show submit message
 function showSubmitMessage() {
-  const body = document.querySelector("body");
-  const main = document.querySelector("main");
-  // Create Submit message
-  const message = document.createElement("div");
-  message.className = "success-outer";
-  message.setAttribute("aria-live", "polite");
-  // Create inner div
-  const inner = document.createElement("div");
-  inner.className = "success-inner";
-  // Create header
-  const header = document.createElement("div");
-  header.className = "success-head";
-  // Create header elements
-  const img = document.createElement("img");
-  img.src = "./assets/images/icon-success-check.svg";
-  img.setAttribute("aria-hidden", "true");
-  const headerText = document.createElement("h2");
-  headerText.innerText = "Message Sent!";
-  // Create paragraph
-  const p = document.createElement("p");
-  p.innerText = "Thanks for completing the form. We'll be in touch soon!";
+  const successMessage = document.querySelector(".success-outer");
+  successMessage.removeAttribute("hidden");
+}
 
-  // Append elements
-  header.append(img, headerText);
-  inner.append(header, p);
-  message.append(inner);
-  body.append(message);
+// Remove submit message
+function removeSubmitMessage() {
+  const successMessage = document.querySelector(".success-outer");
+  successMessage.setAttribute("hidden", "");
 }
 
 // UI functions
@@ -87,7 +68,10 @@ function handleFirstName() {
 
   updateTextInput(firstName, error, valid);
 
-  return valid;
+  return {
+    valid: valid,
+    input: firstName
+  };
 }
 
 function handleLastName() {
@@ -97,7 +81,10 @@ function handleLastName() {
 
   updateTextInput(lastName, error, valid);
 
-  return valid;
+  return {
+    valid: valid,
+    input: lastName
+  };
 }
 
 function handleEmail() {
@@ -107,7 +94,10 @@ function handleEmail() {
 
   updateTextInput(email, error, valid);
 
-  return valid;
+  return {
+    valid: valid,
+    input: email
+  };
 }
 
 function handleQuery() {
@@ -118,7 +108,10 @@ function handleQuery() {
   
   updateInput(error, valid);
 
-  return valid;
+  return {
+    valid: valid,
+    input: radioInputsArray
+  };
 }
 
 function handleMessage() {
@@ -128,7 +121,10 @@ function handleMessage() {
 
   updateTextInput(message, error, valid);
 
-  return valid;
+  return {
+    valid: valid,
+    input: message
+  };
 }
 
 function handleConsent() {
@@ -138,7 +134,10 @@ function handleConsent() {
 
   updateInput(error, valid);
 
-  return valid;
+  return {
+    valid: valid,
+    input: checkbox
+  };
 }
 
 function handleSubmit() {
@@ -151,16 +150,30 @@ function handleSubmit() {
 
   const validators = [handleFirstName, handleLastName, handleEmail, handleQuery, handleMessage, handleConsent];
 
-  const results = validators.map(validator => validator());
+  let firstInvalidInput = null;
+  let isValid = true;
 
-  const result = results.every(Boolean);
+  validators.forEach((validator) => {
+    const result = validator();
+
+    if (!result.valid && !firstInvalidInput) {
+      firstInvalidInput = result.input;
+      isValid = false;
+    }
+  })
+
+  if (!isValid) {
+    firstInvalidInput.focus();
+  }
   
-  if (result) {
+  if (isValid) {
     form.reset();
     showSubmitMessage();
+
+    setTimeout(() => {
+      removeSubmitMessage();
+    }, 3000);
   }
-  console.log(result);
-  return result;
 }
 
 form.addEventListener("submit", (e) => {
